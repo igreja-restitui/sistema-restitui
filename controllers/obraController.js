@@ -7,8 +7,10 @@ const { Parser } = require("json2csv");
 router.get("/", async (req, res) => {
   try {
     // Buscar obras separadas por time
-    const obrasVermelho = await Obra.find({ time: "Vermelho" });
-    const obrasVerde = await Obra.find({ time: "Verde" });
+    const obrasVermelho = await Obra.find({ time: "Vermelho" }).sort({
+      nome: 1,
+    }); // Ordena em ordem alfabética crescente
+    const obrasVerde = await Obra.find({ time: "Verde" }).sort({ nome: 1 }); // Ordena em ordem alfabética crescente
 
     // Renderizar a página com as tabelas
     res.render("obra/index", {
