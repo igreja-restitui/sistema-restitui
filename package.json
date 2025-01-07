@@ -1,0 +1,26 @@
+{
+  "name": "sistema-restitui",
+  "version": "1.0.0",
+  "description": "sistema com a página inicial e funcionalidades da igreja evangélica restitui",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Igreja Evangélica Restitui",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "csv-parser": "^3.1.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.3",
+    "multer": "^1.4.5-lts.1",
+    "serve-favicon": "^2.5.0",
+    "sistema-restitui": "file:"
+  }
+}

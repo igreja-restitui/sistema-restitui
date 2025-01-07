@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+
+  <div class="container mt-4 text-center">
+    <h1>Olimpíadas Bíblicas Restitui Advanced</h1>
+    <br>
+
+    <!-- Tabela para os Times Vermelho -->
+    <h2>Time Vermelho</h2>
+    <h3><%= obrasVermelho.length %> participantes</h3>
+    <table class="table table-bordered table-striped">
+
+      <tbody>
+        <% if (obrasVermelho.length > 0) { %>
+        <% obrasVermelho.forEach(obra => { %>
+        <tr class="table-danger">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhuma obra cadastrada no time Vermelho.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <!-- Tabela para os Times Verde -->
+    <h2>Time Verde</h2>
+    <h3><%= obrasVerde.length %> participantes</h3>
+    <table class="table table-bordered table-striped">
+
+      <tbody>
+        <% if (obrasVerde.length > 0) { %>
+        <% obrasVerde.forEach(obra => { %>
+        <tr class="table-success">
+          <td class="h3"><%= obra.nome %></td>
+
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan=" 2">Nenhuma obra cadastrada no time Verde.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>
