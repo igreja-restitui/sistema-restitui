@@ -4,7 +4,7 @@
   "description": "sistema com a página inicial e funcionalidades da igreja evangélica restitui",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Igreja Evangélica Restitui",
   "license": "ISC",
