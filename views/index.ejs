@@ -1,10 +1,24 @@
 <%- include('partials/header.ejs') %>
 
+<style>
+  .img-obra {
+    max-width: 500px;
+  }
+
+
+  @media (max-width: 550px) {
+    .img-obra {
+      max-width: 350px;
+    }
+  }
+</style>
+
 <body>
   <%- include('partials/navbar.ejs') %>
 
 
   <div class="container text-center">
+
     <div class="jumbotron mt-4">
       <h1 class="display-4">A Paz do Senhor!</h1>
       <h1>OBRA - Olimpíadas Bíblicas Restitui Advanced</h1>
@@ -14,7 +28,24 @@
 
         Quer descobrir a qual time você faz parte? É muito simples! Basta clicar no botão abaixo e descobrir sua equipe.</p>
 
-      <div class="mx-auto text-center"><img src="../images/Baner_oficial.jpeg" width="500"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <video autoplay controls height="500">
+              <source src="../videos/OBRA.mp4" type="video/mp4">
+            </video>
+
+          </div>
+          <div class="col">
+            <img src="../images/Baner_oficial.jpeg" class="img-obra">
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
+      </div>
+
+
 
       <hr class="my-4">
       <h4>Que comece a OBRA! Vamos juntos construir algo grandioso para a glória de Deus!</h4>
