@@ -6,15 +6,85 @@ const { Parser } = require("json2csv");
 // Rota GET para exibir as tabelas com as obras separadas por time
 router.get("/", async (req, res) => {
   try {
-    // Buscar obras separadas por time
-    const obrasVermelho = await Obra.find({ time: "Vermelho" }).sort({
-      nome: 1,
-    }); // Ordena em ordem alfabética crescente
-    const obrasVerde = await Obra.find({ time: "Verde" }).sort({ nome: 1 }); // Ordena em ordem alfabética crescente
+    //Busca por time
+    const obrasVermelho = await Obra.find({
+      time: "Vermelho",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    // Busca separadas por time e por grupo
+    const obrasVermelhoHomens = await Obra.find({
+      time: "Vermelho",
+      grupo: "Homens",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVermelhoMulheres = await Obra.find({
+      time: "Vermelho",
+      grupo: "Mulheres",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVermelhoJovens = await Obra.find({
+      time: "Vermelho",
+      grupo: "Jovens",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVermelhoCriancas = await Obra.find({
+      time: "Vermelho",
+      grupo: "Crianças",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    //BUSCA GERAL POR TIME
+    const obrasVerde = await Obra.find({ time: "Verde" }).sort({ nome: 1 }); // Ordena
+
+    //BUSCA POR TIME E GRUPO
+    const obrasVerdeHomens = await Obra.find({
+      time: "Verde",
+      grupo: "Homens",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVerdeMulheres = await Obra.find({
+      time: "Verde",
+      grupo: "Mulheres",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVerdeJovens = await Obra.find({
+      time: "Verde",
+      grupo: "Jovens",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
+
+    const obrasVerdeCriancas = await Obra.find({
+      time: "Vermelho",
+      grupo: "Crianças",
+    })
+      .collation({ locale: "pt", strength: 1 })
+      .sort({ nome: 1 });
 
     // Renderizar a página com as tabelas
     res.render("obra/index", {
+      obrasVermelhoHomens,
+      obrasVermelhoMulheres,
+      obrasVermelhoJovens,
+      obrasVermelhoCriancas,
       obrasVermelho,
+      obrasVerdeHomens,
+      obrasVerdeMulheres,
+      obrasVerdeJovens,
+      obrasVerdeCriancas,
       obrasVerde,
     });
   } catch (error) {
@@ -32,12 +102,13 @@ router.get("/cadastro", (req, res) => {
 router.post("/cadastro", async (req, res) => {
   try {
     // Captura os dados do formulário
-    const { nome, time } = req.body;
+    const { nome, time, grupo } = req.body;
 
     // Criação de um novo objeto Obra com os dados recebidos
     const obra = new Obra({
       nome: nome,
       time: time,
+      grupo: grupo,
     });
 
     // Salvar a nova obra no banco de dados

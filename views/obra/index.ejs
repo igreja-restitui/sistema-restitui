@@ -4,50 +4,174 @@
 
 
   <div class="container mt-4 text-center">
-    <h1>Olimpíadas Bíblicas Restitui Advanced</h1>
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> OLIMPÍADAS BÍBLICAS RESTITUI ADVANCED</h1>
+
     <br>
 
     <!-- Tabela para os Times Vermelho -->
-    <h2>Time Vermelho</h2>
-    <h3><%= obrasVermelho.length %> participantes</h3>
-    <table class="table table-bordered table-striped">
+    <h1 style="color: red; font-family: 'Bebas Neue'" class="display-3">Time Vermelho</h1>
+    <h2><%= obrasVermelho.length %> participantes</h2>
 
+    <!-- HOMENS -->
+    <table class="table table-bordered table-striped">
+      <h1>Homens</h1>
       <tbody>
-        <% if (obrasVermelho.length > 0) { %>
-        <% obrasVermelho.forEach(obra => { %>
+        <% if (obrasVermelhoHomens.length > 0) { %>
+        <% obrasVermelhoHomens.forEach(obra => { %>
         <tr class="table-danger">
           <td class="h3"><%= obra.nome %></td>
         </tr>
         <% }) %>
         <% } else { %>
         <tr>
-          <td colspan="2">Nenhuma obra cadastrada no time Vermelho.</td>
+          <td colspan="2">Nenhum Homem cadastrado no time Vermelho.</td>
         </tr>
         <% } %>
       </tbody>
     </table>
 
-    <br>
 
-    <!-- Tabela para os Times Verde -->
-    <h2>Time Verde</h2>
-    <h3><%= obrasVerde.length %> participantes</h3>
+
+    <!-- MULHERES -->
     <table class="table table-bordered table-striped">
-
+      <h1>Mulheres</h1>
       <tbody>
-        <% if (obrasVerde.length > 0) { %>
-        <% obrasVerde.forEach(obra => { %>
-        <tr class="table-success">
+        <% if (obrasVermelhoMulheres.length > 0) { %>
+        <% obrasVermelhoMulheres.forEach(obra => { %>
+        <tr class="table-danger">
           <td class="h3"><%= obra.nome %></td>
-
         </tr>
         <% }) %>
         <% } else { %>
         <tr>
-          <td colspan=" 2">Nenhuma obra cadastrada no time Verde.</td>
+          <td colspan="2">Nenhuma Mulher cadastrada no time Vermelho.</td>
         </tr>
         <% } %>
       </tbody>
+    </table>
+
+
+    <!-- JOVENS -->
+    <table class="table table-bordered table-striped">
+      <h1>Jovens</h1>
+      <tbody>
+        <% if (obrasVermelhoJovens.length > 0) { %>
+        <% obrasVermelhoJovens.forEach(obra => { %>
+        <tr class="table-danger">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhum Jovem cadastrado no time Vermelho.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+    <!-- CRIANÇAS -->
+    <table class="table table-bordered table-striped">
+      <h1>Crianças</h1>
+      <tbody>
+        <% if (obrasVermelhoCriancas.length > 0) { %>
+        <% obrasVermelhoCriancas.forEach(obra => { %>
+        <tr class="table-danger">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhuma Criança cadastrada no time Vermelho.</td>
+        </tr>
+        <% } %>
+      </tbody>
+
+    </table>
+
+    <br>
+
+
+    <!-- Tabela para os Times Verde -->
+    <h1 style="color: green; font-family: 'Bebas Neue'" class="display-3">Time Verde</h1>
+    <h2><%= obrasVerde.length %> participantes</h2>
+
+    <!-- HOMENS -->
+    <table class="table table-bordered table-striped">
+      <h1>Homens</h1>
+      <tbody>
+        <% if (obrasVerdeHomens.length > 0) { %>
+        <% obrasVerdeHomens.forEach(obra => { %>
+        <tr class="table-success">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhum Homem cadastrado no time Verde.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+
+    <!-- MULHERES -->
+    <table class="table table-bordered table-striped">
+      <h1>Mulheres</h1>
+      <tbody>
+        <% if (obrasVerdeMulheres.length > 0) { %>
+        <% obrasVerdeMulheres.forEach(obra => { %>
+        <tr class="table-success">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhuma Mulher cadastrada no time Verde.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+    <!-- JOVENS -->
+    <table class="table table-bordered table-striped">
+      <h1>Jovens</h1>
+      <tbody>
+        <% if (obrasVerdeJovens.length > 0) { %>
+        <% obrasVerdeJovens.forEach(obra => { %>
+        <tr class="table-success">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhum Jovem cadastrado no time Verde.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+    <!-- CRIANÇAS -->
+    <table class="table table-bordered table-striped">
+      <h1>Crianças</h1>
+      <tbody>
+        <% if (obrasVerdeCriancas.length > 0) { %>
+        <% obrasVerdeCriancas.forEach(obra => { %>
+        <tr class="table-success">
+          <td class="h3"><%= obra.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhuma Criança cadastrada no time Verde.</td>
+        </tr>
+        <% } %>
+      </tbody>
+
     </table>
   </div>
 </body>

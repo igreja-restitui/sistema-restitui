@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const obraSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   time: { type: String, required: true },
+  grupo: { type: String, required: true },
 });
 
 // Exporta o modelo
