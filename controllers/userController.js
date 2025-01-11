@@ -72,7 +72,7 @@ router.post("/login", (req, res) => {
           maxAge: 3600000,
         }); // 1h
 
-        res.redirect("/");
+        res.redirect("/obra/pontuacao");
       } else {
         return res.status(401).send("Email ou senha inválidos.");
       }

@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center ">
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'">Pontuação dos Times</h1>
+    <br>
+
+    <div class="row d-flex justify-content-between">
+      <!-- Time Verde -->
+      <div class="col-md-5  mb-4 bg-success text-white p-3 rounded">
+        <h2>Time Verde</h2>
+        <p class="display-4" id="pontos-verde"><%= times.verde.pontos %></p>
+        <form method="POST" action="/obra/pontuar">
+          <input type="hidden" name="time" value="verde">
+          <button class="btn btn-light btn-lg" name="pontos" value="10" onclick="return confirmar('+10 para o Time Verde')">+10</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="20" onclick="return confirmar('+20 para o Time Verde')">+20</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="30" onclick="return confirmar('+30 para o Time Verde')">+30</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="50" onclick="return confirmar('+50 para o Time Verde')">+50</button>
+        </form>
+      </div>
+
+
+      <!-- Time Vermelho -->
+      <div class="col-md-5 bg-danger text-white p-3 rounded">
+        <h2>Time Vermelho</h2>
+        <p class="display-4" id="pontos-vermelho"><%= times.vermelho.pontos %></p>
+        <form method="POST" action="/obra/pontuar">
+          <input type="hidden" name="time" value="vermelho">
+          <button class="btn btn-light btn-lg" name="pontos" value="10" onclick="return confirmar('+10 para o Time Vermelho')">+10</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="20" onclick="return confirmar('+20 para o Time Vermelho')">+20</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="30" onclick="return confirmar('+30 para o Time Vermelho')">+30</button>
+          <button class="btn btn-light btn-lg" name="pontos" value="50" onclick="return confirmar('+50 para o Time Vermelho')">+50</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  function confirmar(mensagem) {
+    return confirm(`Tem certeza que deseja adicionar ${mensagem}?`);
+  }
+</script>
+
+<%- include('../partials/footer.ejs') %>

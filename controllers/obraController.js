@@ -1,7 +1,9 @@
 const express = require("express");
 const Obra = require("../database/models/Obra");
+const Pontuacao = require("../database/models/Pontuacao");
 const router = express.Router(); // Criando o router para controlar as rotas
 const { Parser } = require("json2csv");
+const isAuth = require("../middlewares/isAuth");
 
 // Rota GET para exibir as tabelas com as obras separadas por time
 router.get("/", async (req, res) => {
@@ -149,6 +151,57 @@ router.get("/exportar", async (req, res) => {
   }
 });
 
-// Rota GET para exibir o formulário de upload de CSV
+//pontuação
+
+//inicializar banco
+// Inicializa os times (opcional, se não existirem no banco)
+// router.get("/inicializar", async (req, res) => {
+//   try {
+//     const timeVerde = new Pontuacao({ time: "verde", pontos: 0 });
+//     const timeVermelho = new Pontuacao({ time: "vermelho", pontos: 0 });
+
+//     await timeVerde.save();
+//     await timeVermelho.save();
+
+//     res.send("Times inicializados com sucesso!");
+//   } catch (err) {
+//     console.error("Erro ao inicializar os times:", err.message);
+//     res.status(500).send("Erro ao inicializar os times.");
+//   }
+// });
+
+router.get("/pontuacao", isAuth, async (req, res) => {
+  try {
+    // Busca os dados dos times
+    const timeVerde = await Pontuacao.findOne({ time: "verde" });
+    const timeVermelho = await Pontuacao.findOne({ time: "vermelho" });
+
+    // Renderiza a página com os dados dos times
+    res.render("obra/pontuacao", {
+      times: {
+        verde: timeVerde,
+        vermelho: timeVermelho,
+      },
+    });
+  } catch (err) {
+    console.error("Erro ao carregar os times:", err.message);
+    res.status(500).send("Erro ao carregar os times.");
+  }
+});
+
+router.post("/pontuar", async (req, res) => {
+  const { time, pontos } = req.body;
+
+  try {
+    // Atualiza a pontuação do time
+    await Pontuacao.updateOne({ time }, { $inc: { pontos: parseInt(pontos) } });
+
+    // Redireciona para a página de pontuação
+    res.redirect("/obra/pontuacao");
+  } catch (err) {
+    console.error("Erro ao atualizar a pontuação:", err.message);
+    res.status(500).send("Erro ao atualizar a pontuação.");
+  }
+});
 
 module.exports = router; // Exporta o router para ser usado no app.js
