@@ -1,0 +1,62 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center">
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> VISITANTES</h1>
+    <br>
+    <% if (user != null) { %>
+    <a href="/visitante/cadastro" class="btn btn-primary">Cadastrar Visitante</a>
+    <% } %>
+    <br>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Cultos Presentes</th>
+          <th scope="col">Marcar Presença</th>
+        </tr>
+
+
+      </thead>
+
+      <tbody>
+        <% if (visitantes.length > 0) { %>
+        <% visitantes.forEach(visitante => { %>
+        <tr>
+          <td class="h3"><%= visitante.nome %></td>
+
+          <td class="h3"><%= visitante.telefone %> <a href="https://api.whatsapp.com/send?phone=55<%= visitante.telefone %>" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></td>
+
+          <td class="h3"><%= visitante.qtdCultos %></td>
+          <td class="h3">
+
+            <form action="/visitante/presenca" class="inline-block" method="post">
+
+              <input type="hidden" name="id" value="<%= visitante._id %>">
+              <button type="submit" class="btn btn-primary">Marcar Presença</button>
+
+            </form>
+
+          </td>
+        </tr>
+
+
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhum Visitante cadastrado.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>

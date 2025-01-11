@@ -1,0 +1,63 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center">
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> Membros</h1>
+    <br>
+    <% if (user != null) { %>
+    <a href="/membro/cadastro" class="btn btn-primary">Cadastrar Membro</a>
+    <% } %>
+    <br>
+    <br>
+
+    <% if (msg && msg.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= msg[0].msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Entrada</th>
+        </tr>
+
+
+      </thead>
+
+      <tbody>
+        <% if (membros.length > 0) { %>
+        <% membros.forEach(membro => { %>
+        <tr>
+          <td class="h3"><%= membro.nome %></td>
+
+          <td class="h3"><%= membro.telefone %> <a href="https://api.whatsapp.com/send?phone=55<%= membro.telefone %>" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></td>
+
+          <td class="h3"><%= membro.idade %> anos</td>
+          <td class="h3"><%= membro.dataEntrada %></td>
+
+        </tr>
+
+        <% }) %>
+
+        <% } else { %>
+
+        <tr>
+          <td colspan="2">Nenhum Membro cadastrado.</td>
+        </tr>
+        <% } %>
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center">
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> GRUPOS</h1>
+
+    <br>
+    <% if (msg && msg.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= msg[0].msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
+
+    <% if (user != null && user.role =="admin") { %>
+    <a href="/grupo/cadastro" class="btn btn-primary">Cadastrar Grupo</a>
+    <% } %>
+
+    <br>
+    <br>
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <% if (grupos.length > 0) { %>
+        <% grupos.forEach(grupo => { %>
+        <tr>
+          <td class="h3"><%= grupo.nome %></td>
+        </tr>
+        <% }) %>
+        <% } else { %>
+        <tr>
+          <td colspan="2">Nenhum Grupo cadastrado.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+
+
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>

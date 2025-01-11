@@ -1,0 +1,67 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center">
+
+    <% if (msg && msg.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= msg[0].msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> Avisos</h1>
+    <br>
+    <% if (user != null) { %>
+    <a href="/aviso/cadastro" class="btn btn-primary">Cadastrar Aviso</a>
+    <% } %>
+    <br>
+    <br>
+
+
+
+
+    <form method="GET" action="/aviso">
+      <div class="form-group">
+        <label for="grupo">Filtrar por grupo:</label>
+        <select name="slug" id="slug" class="form-control" onchange="this.form.submit()">
+          <option value="">Todos</option>
+          <% grupos.forEach(grupo => { %>
+          <option value="<%= grupo.slug %>" <%= grupo.slug === grupoSelecionado ? 'selected' : '' %>><%= grupo.nome %></option>
+          <% }) %>
+        </select>
+      </div>
+    </form>
+
+    <br>
+    <br>
+
+    <% if (avisos.length > 0) { %>
+    <% avisos.forEach(aviso => { %>
+
+    <div class="card text-center">
+      <div class="card-header">
+        <%= aviso.grupo %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"> <%= aviso.title %></h5>
+        <p class="card-text"> <%= aviso.descricao %></p>
+      </div>
+      <div class="card-footer text-muted">
+        Dia: <%= aviso.dia %> | Horário: <%= aviso.horario %> <br>
+      </div>
+    </div>
+    <br>
+    <% }) %>
+    <% } else { %>
+    <h1>Nenhum Aviso Cadstrado</h1>
+    <% } %>
+
+
+
+
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>

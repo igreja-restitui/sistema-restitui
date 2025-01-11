@@ -122,11 +122,6 @@ router.post("/cadastro", async (req, res) => {
   }
 });
 
-// Rota GET para página de sucesso após cadastro
-router.get("/sucesso", (req, res) => {
-  res.send("Cadastro realizado com sucesso!");
-});
-
 // Rota para exportar obras diretamente como download de CSV
 router.get("/exportar", async (req, res) => {
   try {
@@ -138,7 +133,7 @@ router.get("/exportar", async (req, res) => {
     }
 
     // Configuração do cabeçalho e campos do CSV
-    const fields = ["nome", "time"]; // Campos a serem incluídos no CSV
+    const fields = ["nome", "time", "grupo"]; // Campos a serem incluídos no CSV
     const json2csvParser = new Parser({ fields });
     const csv = json2csvParser.parse(obras);
 

@@ -1,0 +1,63 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+
+  <div class="container text-center">
+    <br>
+    <h1>Cadastro de Aviso</h1>
+    <hr>
+
+
+
+
+    <form action="/aviso/cadastro" method="POST">
+      <div class="form-group">
+
+        <label for="titulo">Título:</label>
+        <br>
+        <input type="text" class="form-control" id="titulo" name="titulo" required>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <br>
+        <textarea class="form-control" id="descricao" name="descricao" required> </textarea>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="data">Data:</label>
+        <br>
+        <input type="datetime-local" class="form-control" id="data" name="data" required>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="grupo">Grupo:</label>
+        <br>
+        <select name="grupo" class="form-select">
+
+          <% grupos.forEach(grupo => { %>
+          <option value="<%= grupo.nome %>"> <%= grupo.nome %></option>
+          <% }) %>
+
+        </select>
+      </div>
+
+      <br>
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+  </div>
+
+
+</body>
+
+<%- include('../partials/footer.ejs') %>

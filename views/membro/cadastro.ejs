@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+
+  <div class="container text-center">
+    <br>
+    <h1>Cadastro de Membro</h1>
+    <hr>
+    <form action="/membro/cadastro" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome do Membro:</label>
+        <br>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <br>
+        <input type="tel" class="form-control" id="telefone" name="telefone" required>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="idade">Idade:</label>
+        <br>
+        <input type="number" class="form-control" id="idade" name="idade" required>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="dataEntrada">Data de Entrada:</label>
+        <br>
+        <input type="date" class="form-control" id="dataEntrada" name="dataEntrada" required>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+  </div>
+
+
+</body>
+
+<%- include('../partials/footer.ejs') %>

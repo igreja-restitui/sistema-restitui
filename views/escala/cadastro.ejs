@@ -1,0 +1,104 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+
+  <div class="container text-center">
+    <br>
+    <h1>Cadastro de Escala</h1>
+    <hr>
+
+
+
+
+    <form action="/escala/cadastro" method="POST">
+      <br>
+      <div class="form-group">
+        <label for="grupo">Grupo:</label>
+        <br>
+        <select name="grupo" class="form-select">
+
+          <% grupos.forEach(grupo => { %>
+          <option value="<%= grupo.nome %>"> <%= grupo.nome %></option>
+          <% }) %>
+
+        </select>
+      </div>
+
+      <br>
+
+
+      <div class="form-group">
+
+        <label for="terca">Terça-Feira:</label>
+        <br>
+        <input type="text" class="form-control" id="terca" name="terca">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+
+        <label for="quinta">Quinta-Feira:</label>
+        <br>
+        <input type="text" class="form-control" id="quinta" name="quinta">
+      </div>
+      <br>
+
+      <div class="form-group">
+
+        <label for="sabadoManha">Sábado de Manhã:</label>
+        <br>
+        <input type="text" class="form-control" id="sabadoManha" name="sabadoManha">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+
+        <label for="sabadoNoite">Sábado à Noite:</label>
+        <br>
+        <input type="text" class="form-control" id="sabadoNoite" name="sabadoNoite">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+
+        <label for="domingoManha">Domingo de Manhã:</label>
+        <br>
+        <input type="text" class="form-control" id="domingoManha" name="domingoManha">
+      </div>
+
+      <br>
+      <div class="form-group">
+
+        <label for="domingoNoite">Domingo à Noite:</label>
+        <br>
+        <input type="text" class="form-control" id="domingoNoite" name="domingoNoite">
+      </div>
+
+
+      <br>
+
+      <div class="form-group">
+        <label for="data">Data:</label>
+        <br>
+        <input type="date" class="form-control" id="data" name="data">
+      </div>
+
+      <br>
+
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <br>
+      <br>
+    </form>
+
+  </div>
+
+
+</body>
+
+<%- include('../partials/footer.ejs') %>

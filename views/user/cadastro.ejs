@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container">
+    <br>
+
+    <form method="post" action="/user/cadastro">
+
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="nome" class="form-control" id="nome" placeholder="Digite seu nome" name="nome">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" name="email">
+      </div>
+      <br>
+      <div class="form-group">
+
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password">
+      </div>
+      <br>
+      Já tem uma conta? <a href="/user/login">Clique aqui para fazer o login.</a>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+  </div>
+
+
+</body>
+
+<%- include('../partials/footer.ejs') %>

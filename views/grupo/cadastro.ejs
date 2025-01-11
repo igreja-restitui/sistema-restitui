@@ -1,0 +1,26 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+
+  <div class="container text-center">
+    <br>
+    <h1>Cadastro de Grupo</h1>
+    <hr>
+    <form action="/grupo/cadastro" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome do grupo:</label>
+        <br>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+  </div>
+
+
+</body>
+
+<%- include('../partials/footer.ejs') %>

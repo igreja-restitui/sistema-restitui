@@ -22,10 +22,54 @@
           <a class="nav-link text-decoration-underline" href="/obra">OBRA</a>
         </li>
 
+        <!-- 
+        <li class="nav-item">
+          <a class="nav-link " href="/aviso">Avisos</a>
+        </li> -->
+
+        <li class="nav-item">
+          <a class="nav-link " href="/escala">Escalas</a>
+        </li>
+
+
+
+        <!-- <% if (user != null) { %>
+        <li class="nav-item">
+          <a class="nav-link " href="/visitante">Visitantes</a>
+        </li>
+        <% } %> -->
+
+        <!-- <% if (user != null && user.role == "admin") { %>
+        <li class="nav-item">
+          <a class="nav-link " href="/grupo">Grupos</a>
+        </li>
+        <% } %> -->
+
+
+
+        <!-- <% if (user != null && user.role == "admin") { %>
+        <li class="nav-item">
+          <a class="nav-link " href="/membro">Membros</a>
+        </li>
+        <% } %> -->
+
         <li class="nav-item">
           <a class="nav-link " href="/contatos">Contatos</a>
         </li>
 
+
+        <% if (user != null) { %>
+        <li class="nav-item">
+          <a class="nav-link " href="/user/logout"><i class="fa-solid fa-right-from-bracket" style="color: aliceblue;"> </i> | Sair</a>
+        </li>
+        <% } %>
+
+
+        <% if (user == null) { %>
+        <li class="nav-item">
+          <a class="nav-link " href="/user/login"><i class="fa-solid fa-user" style="color: aliceblue;"></i> | Entrar</a>
+        </li>
+        <% } %>
 
       </ul>
 

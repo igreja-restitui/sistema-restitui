@@ -1,0 +1,73 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-4 text-center">
+
+
+    <h1 class="text-bg-primary p-4 rounded display-3" style="font-family: 'Bebas Neue'"> Escalas</h1>
+    <br>
+    <% if (user != null) { %>
+    <a href="/escala/cadastro" class="btn btn-primary">Cadastrar Escala</a>
+    <% } %>
+
+    <br>
+    <br>
+    <form method="GET" action="/escala">
+      <div class="form-group">
+        <label for="grupo">Filtrar por grupo:</label>
+        <select name="slug" id="slug" class="form-control" onchange="this.form.submit()">
+          <option value="">Todos</option>
+          <% grupos.forEach(grupo => { %>
+          <option value="<%= grupo.slug %>" <%= grupo.slug === grupoSelecionado ? 'selected' : '' %>><%= grupo.nome %></option>
+          <% }) %>
+        </select>
+      </div>
+    </form>
+    <br>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+
+        <thead>
+          <tr>
+            <th>Semana</th>
+            <th>Grupo</th>
+            <th>Terça-Feira</th>
+            <th>Quinta-Feira</th>
+            <th>Sábado de Manhã</th>
+            <th>Sábado à Noite</th>
+            <th>Domingo de Manhã</th>
+            <th>Domingo à Noite</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if (escalas.length > 0) { %>
+          <% escalas.forEach(escala => { %>
+          <tr>
+            <td class="h3"><%= escala.data %></td>
+            <td class="h3"><%= escala.grupo %></td>
+            <td class="h3"><%= escala.terca %></td>
+            <td class="h3"><%= escala.quinta %></td>
+            <td class="h3"><%= escala.sabadoManha %></td>
+            <td class="h3"><%= escala.sabadoNoite %></td>
+            <td class="h3"><%= escala.domingoManha %></td>
+            <td class="h3"><%= escala.domingoNoite %></td>
+          </tr>
+          <% }) %>
+          <% } else { %>
+          <tr>
+            <td colspan="8">Nenhuma Escala cadastrada.</td>
+          </tr>
+          <% } %>
+        </tbody>
+
+      </table>
+    </div>
+
+
+  </div>
+</body>
+<%- include('../partials/footer.ejs') %>
