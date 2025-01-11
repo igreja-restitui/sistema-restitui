@@ -3,8 +3,10 @@ const User = require("../database/models/User");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const authenticateToken = require("../middlewares/isAuth");
+const isAuth = require("../middlewares/isAuth");
 const isAdmin = require("../middlewares/isAdmin");
+
+router.get;
 
 router.get("/cadastro", (req, res) => {
   res.render("user/cadastro");
