@@ -70,7 +70,7 @@ router.get("/", async (req, res) => {
       .sort({ nome: 1 });
 
     const obrasVerdeCriancas = await Obra.find({
-      time: "Vermelho",
+      time: "Verde",
       grupo: "Crianças",
     })
       .collation({ locale: "pt", strength: 1 })
